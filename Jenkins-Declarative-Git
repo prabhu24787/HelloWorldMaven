@@ -1,8 +1,8 @@
 pipeline {
     agent any
     
-    enviornment {
-        PATH = "/usr/local/share/maven/apache-maven-3.6.3/bin:$PATH"
+   environment {
+        MAVEN_HOME = tool('M3')
     }
     
     stages{
@@ -11,9 +11,10 @@ pipeline {
                 git 'https://github.com/prabhu24787/HelloWorldMaven.git'
             }
         }
-        stage("mvn build") {
-            steps{
-                sh "mvn clean package"
+       
+          stages {
+        stage(Maven') {
+           sh '${MAVEN_HOME}/bin/mvn -B verify'
         }
       }
     }
