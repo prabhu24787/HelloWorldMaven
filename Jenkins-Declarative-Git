@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     enviornment {
-    PATH = "/usr/local/share/maven/apache-maven-3.6.3:$PATH"
+        PATH = "/usr/local/share/maven/apache-maven-3.6.3:$PATH"
     }
     
     stages{
@@ -12,9 +12,9 @@ pipeline {
             }
         }
         stage("mvn build") {
-        steps{
-        sh "mvn clean package"
+            steps{
+                sh "mvn clean package"
         }
-        }
+      }
     }
 }
